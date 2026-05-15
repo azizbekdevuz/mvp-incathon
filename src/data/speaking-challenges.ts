@@ -416,3 +416,13 @@ export const SPEAKING_CATEGORIES: SpeakingCategory[] = [
 export function getCategoryById(id: string): SpeakingCategory | undefined {
   return SPEAKING_CATEGORIES.find((c) => c.id === id);
 }
+
+/** Random line for campus / speak mini-flows (deterministic enough for replay variety). */
+export function pickRandomSpeakingSentence(
+  categoryId: string,
+): SpeakingSentence | null {
+  const cat = getCategoryById(categoryId);
+  if (!cat?.sentences.length) return null;
+  const idx = Math.floor(Math.random() * cat.sentences.length);
+  return cat.sentences[idx] ?? null;
+}

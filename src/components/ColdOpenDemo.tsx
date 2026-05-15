@@ -110,13 +110,22 @@ export function ColdOpenDemo({ onPlayFullScenario }: ColdOpenDemoProps) {
           아님.
         </p>
 
-        <Link
-          href="/speak"
-          className="btn-neon-primary mt-4 flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-sm font-black sm:text-base"
-        >
-          <span aria-hidden>🎤</span>
-          발음 생존 모드 · 말하면 산다
-        </Link>
+        <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <Link
+            href="/speak"
+            className="btn-neon-primary flex items-center justify-center gap-2 rounded-2xl py-4 text-sm font-black sm:text-base"
+          >
+            <span aria-hidden>🎤</span>
+            발음 생존 모드 · 말하면 산다
+          </Link>
+          <Link
+            href="/explore"
+            className="flex items-center justify-center gap-2 rounded-2xl border-2 border-fuchsia-400/60 bg-gradient-to-br from-fuchsia-950/60 to-violet-950/50 py-4 text-sm font-black text-fuchsia-100 shadow-[0_0_28px_-8px_rgba(217,70,239,0.45)] transition hover:border-cyan-400/50 hover:shadow-[0_0_36px_-6px_rgba(34,211,238,0.35)]"
+          >
+            <span aria-hidden>🗺️</span>
+            캠퍼스 생존 지도
+          </Link>
+        </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
           <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white">

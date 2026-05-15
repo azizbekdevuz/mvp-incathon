@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useState } from "react";
 import { SCENARIOS } from "@/data/scenarios";
 import type { Scenario, TurnRecord } from "@/lib/types";
@@ -115,6 +116,17 @@ export function KonglishExperience() {
     <div className="relative min-h-[100dvh]">
       <AnimatedBackdrop />
       <ColdOpenDemo onPlayFullScenario={openImmigrationFull} />
+      <section className="relative z-10 px-4 pt-2 sm:px-6">
+        <div className="mx-auto flex max-w-xl flex-col gap-2 sm:flex-row sm:justify-center">
+          <Link
+            href="/explore"
+            className="flex flex-1 items-center justify-center gap-2 rounded-2xl border-2 border-fuchsia-500/50 bg-fuchsia-950/30 py-3.5 text-center text-sm font-black text-fuchsia-100 shadow-[0_0_24px_-8px_rgba(217,70,239,0.4)] transition hover:border-cyan-400/40"
+          >
+            <span aria-hidden>🗺️</span>
+            캠퍼스 생존 지도 · /explore
+          </Link>
+        </div>
+      </section>
       <ScenarioPreview
         scenarios={SCENARIOS}
         onPick={openScenario}
