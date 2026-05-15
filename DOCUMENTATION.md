@@ -1,7 +1,7 @@
 # Documentation index
 
 Central map for **how this repository works internally**. Public onboarding stays in [README.md](README.md); architecture diagrams and boundaries live in [ARCHITECTURE.md](ARCHITECTURE.md).
-g
+
 ---
 
 ## Table of contents
