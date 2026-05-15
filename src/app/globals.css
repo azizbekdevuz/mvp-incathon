@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans), var(--font-noto-kr), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-noto-kr), var(--font-geist-sans), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.glass-panel {
+  border-radius: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: linear-gradient(
+    145deg,
+    rgb(24 24 27 / 0.72),
+    rgb(9 9 11 / 0.82)
+  );
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 80px -32px rgb(0 0 0 / 0.75);
+}
+
+.glass-panel-hover {
+  border-radius: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: linear-gradient(
+    150deg,
+    rgb(39 39 42 / 0.55),
+    rgb(9 9 11 / 0.75)
+  );
+  backdrop-filter: blur(16px);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgb(34 211 238 / 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px -24px rgb(34 211 238 / 0.35);
+}
+
+.btn-neon-primary {
+  background: linear-gradient(120deg, #22d3ee, #a855f7);
+  color: #0b0b10;
+  box-shadow: 0 0 32px -6px rgb(34 211 238 / 0.55);
+}
+
+.btn-neon-primary:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 0 40px -4px rgb(168 85 247 / 0.55);
+}
+
+.btn-neon-ghost {
+  border: 1px solid rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.04);
+  color: rgb(244 244 245 / 0.95);
+}
+
+.btn-neon-ghost:hover {
+  border-color: rgb(34 211 238 / 0.35);
+  background: rgb(255 255 255 / 0.07);
+}
+
+.bubble-npc {
+  background: linear-gradient(145deg, #27272a, #18181b);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow: 0 12px 30px -18px rgb(0 0 0 / 0.9);
+}
+
+.bubble-you {
+  background: linear-gradient(135deg, #a5f3fc, #e9d5ff);
+  border: 1px solid rgb(34 211 238 / 0.35);
+  box-shadow: 0 16px 40px -22px rgb(34 211 238 / 0.55);
+}
+
+.konglish-aurora {
+  background: linear-gradient(
+    125deg,
+    #0f172a,
+    #1e1b4b 28%,
+    #312e81 52%,
+    #0f172a 100%
+  );
+  background-size: 200% 200%;
+  animation: konglish-shift 18s ease-in-out infinite;
+}
+
+@keyframes konglish-shift {
+  0% {
+    background-position: 0% 40%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  100% {
+    background-position: 0% 40%;
+  }
+}
+
+.float-label {
+  position: absolute;
+  animation-name: float-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes float-drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(-18px) translateX(6px);
+    opacity: 0.75;
+  }
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-chat-in {
+  animation: chat-in 0.45s cubic-bezier(0.21, 0.9, 0.32, 1) both;
+}
+
+.panic-choice {
+  box-shadow: 0 18px 48px -28px rgb(0 0 0 / 0.85);
+}
+
+.panic-choice:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.panic-npc-card {
+  box-shadow: 0 16px 40px -28px rgb(168 85 247 / 0.25);
+}
+
+.reveal-open {
+  animation: reveal-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes reveal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.scenario-arcade {
+  background: radial-gradient(
+    ellipse 120% 80% at 20% -20%,
+    rgba(217, 70, 239, 0.12),
+    transparent 50%
+  );
+}
+
+.bar-grow-rose,
+.bar-grow-emerald {
+  width: 0;
+  animation: panic-bar-fill 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes panic-bar-fill {
+  to {
+    width: var(--bar-w, 0%);
+  }
+}
